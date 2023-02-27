@@ -1,0 +1,5 @@
+<%# here to code the view of each listing  %>
+<% @listings.each do |listing| %>
+<h1><%=listing.title %></h1>
+<p><%= listing.details %></p>
+<% end %>
