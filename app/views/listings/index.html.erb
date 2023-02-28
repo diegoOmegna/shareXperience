@@ -1,2 +1,19 @@
 <%# here we show all the listings %>
-<h1>HOLA from index</h1>
+<section class="listings">
+  <div class="container">
+    <h3><%= @listings.count %> Xperiences </h3>
+    <div class="Cards">
+      <div class="Cards__grid">
+        <% @listings.each do |listing|  %>
+          <div class="grid-item">
+            <div>
+            <%= link_to listing.title, listing_path(listing.id)%>
+            </div>
+            <div>
+            <%= listing.details %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to 'Add new Xperience', new_listing_path %>
+      <%= link_to "Go back", root_path  %>

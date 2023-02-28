@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
-  before_action :set_listing, only: [:show, :create, :edit, :update, :destroy]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
     @listings = Listing.all
@@ -11,6 +11,8 @@ class ListingsController < ApplicationController
   end
 
   def create
+    @listing = Listing.new(listing_params)
+    @listing.user = current_user
     @listing.save
     redirect_to listing_path(@listing)
   end
