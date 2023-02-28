@@ -1,5 +1,34 @@
 <%# here to code the view of each listing  %>
-<% @listings.each do |listing| %>
-<h1><%=listing.title %></h1>
-<p><%= listing.details %></p>
-<% end %>
+<div class="container-listing">
+  <div class="row listing-content">
+    <!-- Details box -->
+    <div class="listing col-md-8">
+      <div class="listing-title">
+        <h3><strong><%= @listing.title %></strong></h3>
+        <p><%= @listing.details %></p>
+      </div><br>
+
+      <div class="listing-details">
+        <div class="row-content">
+          <div class="col-xs-3">
+            <p><strong>Highlights</strong></p>
+          </div>
+
+          <div class="col-xs-9">
+              <%= @listing.details %>
+          </div>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <%= button_to "Delete Xperience", listings_path  %>
+
+    <%= button_to "Go back", listings_path  %>
+
+    <%= button_to "delete", @listing, :method => :delete %>
+
+
+    <%# <%= render 'bookings/form', listing: @listing, booking: @booking %>
+
+    <br><br><br>
+  </div>

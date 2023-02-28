@@ -1,3 +1,9 @@
-<h1>Listings#new</h1>
-<p>Find me in app/views/listings/new.html.erb</p>
+<h1>Add your Xperience</h1>
 <%# Here goes the form to create a new listing %>
+<%= simple_form_for @listing do |f| %>
+  <%= f.input :title %>
+  <%= f.input :details %>
+  <%= f.input :price_per_day %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to  %>
