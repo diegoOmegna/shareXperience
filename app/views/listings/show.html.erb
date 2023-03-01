@@ -27,4 +27,5 @@
     <%= button_to "delete", @listing, :method => :delete %>
 
     <%= button_to "Book this Xperience", new_listing_booking_path(listing_id: @listing), :method => :get %>
+    <%= button_to "My bookings", bookings_path(listing_id: @listing), :method => :get %>
   </div>
