@@ -1,31 +1,32 @@
-<%# here to code the view of each listing  %>
-<div class="container-listing">
-  <div class="row listing-content">
-    <!-- Details box -->
-    <div class="listing col-md-8">
+<div class="container col-6">
+<div class="card-group">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1651133806650-a61eef0a8fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" class="card-img-top" alt="...">
+    <div class="card-body">
       <div class="listing-title">
-        <h3><strong><%= @listing.title %></strong></h3>
-        <p><%= @listing.details %></p>
-      </div><br>
-
-      <div class="listing-details">
-        <div class="row-content">
-          <div class="col-xs-3">
-            <p><strong>Highlights</strong></p>
-          </div>
-
-          <div class="col-xs-9">
-              <%= @listing.details %>
-          </div>
+          <h3><strong><%= @listing.title %></strong></h3>
+          <p><%= @listing.details %></p>
         </div>
-        <br><br>
-      </div>
     </div>
-
-    <%= button_to "Go back", listings_path, :method => :get %>
-
-    <%= button_to "delete", @listing, :method => :delete %>
-
-    <%= button_to "Book this Xperience", new_listing_booking_path(listing_id: @listing), :method => :get %>
-    <%= button_to "My bookings", bookings_path(listing_id: @listing), :method => :get %>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+      <div class="flex-col mt-3" >
+        <div class="mb-2">
+    <%= link_to "Go back", listings_path  %>
+        </div>
+        <div class="mb-2">
+    <%= link_to "Edit", edit_listing_path %>
+        </div>
+        <div class="mb-2">
+    <%= link_to "Delete Xperience ", @listing, :method => :delete %>
+       </div>
+        <div class="mb-2">
+    <%= link_to "Book this Xperience", new_listing_booking_path(listing_id: @listing) %>
+       </div>
+        <div class="mb-2">
+     <%= link_to "My bookings", bookings_path(listing_id: @listing) %>
+       </div>
+    </div>
+  </div>
+</div>
   </div>
