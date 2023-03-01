@@ -1,3 +1,4 @@
+
 <h1>You booked your Xperience<%=@booking.listing.title%></h1>
 <p>From: <%=@booking.start_date %></p>
 <p>To: <%=@booking.end_date %></p>
@@ -7,3 +8,4 @@
 <h1>We hope you enjoy your Xperience <%= @booking.user.first_name %>!</h1>
 <%= link_to "Go back", root_path%>
 <%= link_to "Delete Booking", @booking, :method => :delete %>
+
