@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  # skip_before_action :authenticate_user!, only: [ :index, :show ]
   # skip_after_action :verify_policy_scoped, only: :index
-  before_action :set_booking, only: [ :show ]
+  before_action :set_booking, only: [ :show, :destroy ]
   before_action :set_listing, only: [ :new, :create ]
 
   def index
@@ -27,6 +27,10 @@ class BookingsController < ApplicationController
     else
       redirect_to listing_path(@listing)
     end
+  end
+
+  def destroy
+    @booking.destroy
   end
 
   private

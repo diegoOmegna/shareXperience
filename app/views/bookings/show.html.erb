@@ -1,2 +1,11 @@
 
-<h1>booking show</h1>
+<h1>You booked your Xperience<%=@booking.listing.title%></h1>
+<p>From: <%=@booking.start_date %></p>
+<p>To: <%=@booking.end_date %></p>
+<% total_days = (@booking.end_date - @booking.start_date).to_i / 3600 / 24%>
+<p><%= total_days  %> days </p>
+<h3>Your final price: <%= total_days * @booking.listing.price_per_day %> CHF </h3>
+<h1>We hope you enjoy your Xperience <%= @booking.user.first_name %>!</h1>
+<%= button_to "Go back", root_path, :method => :get  %>
+<%= button_to "delete", @booking, :method => :delete %>
+
