@@ -1,0 +1,8 @@
+
+<% @bookings.each do |booking| %>
+ <%= link_to booking.listing.title, listing_booking_path(@listing.id, booking.id) %>
+ <p><%= booking.user.first_name + " " + booking.user.last_name%></p>
+ <p><%= booking.user.email %> </p>
+ <p><%= booking.start_date %> </p>
+ <p><%= booking.end_date %></p>
+<% end %>
