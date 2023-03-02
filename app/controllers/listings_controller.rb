@@ -6,6 +6,17 @@ class ListingsController < ApplicationController
     @listings = Listing.all
   end
 
+  def show
+    # The `geocoded` scope filters only listing with coordinates
+    @markers = [{
+
+      lat: @listing.latitude,
+      lng: @listing.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: { listing: @listing }),
+      marker_html: render_to_string(partial: "marker")
+    }]
+  end
+
   def new
     @listing = Listing.new
   end
@@ -15,9 +26,6 @@ class ListingsController < ApplicationController
     @listing.user = current_user
     @listing.save
     redirect_to listing_path(@listing)
-  end
-
-  def show
   end
 
   def edit

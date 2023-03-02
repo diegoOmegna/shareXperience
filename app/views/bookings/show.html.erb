@@ -1,4 +1,4 @@
-
+<div class="container">
 <h1>You booked your Xperience<%=@booking.listing.title%></h1>
 <p>From: <%=@booking.start_date %></p>
 <p>To: <%=@booking.end_date %></p>
@@ -6,6 +6,10 @@
 <p><%= total_days  %> days </p>
 <h3>Your final price: <%= total_days * @booking.listing.price_per_day %> CHF </h3>
 <h1>We hope you enjoy your Xperience <%= @booking.user.first_name %>!</h1>
+</div>
+<div class="btn btn-flat">
 <%= link_to "Go back", root_path%>
+</div>
+<div class="btn btn-flat">
 <%= link_to "Delete Booking", @booking, :method => :delete %>
-
+</div>
