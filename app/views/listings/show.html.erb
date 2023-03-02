@@ -8,6 +8,14 @@
           <h3><strong><%= @listing.title %></strong></h3>
           <p><%= @listing.details %></p>
         </div>
+      <p><strong>Reviews</strong></p>
+  <ul class="list-group">
+    <% @listing.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %></li>
+       <li class="list-group-item"><%= review.rating %></li>
+    <% end %>
+  </ul>
+  <br>
 
     </div>
     <div class="card-footer">
