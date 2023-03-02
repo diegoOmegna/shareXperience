@@ -1,3 +1,7 @@
-<h1>Hello! im the view from Show booking of a listing</h1>
-<h2><%= @booking.id %></h2>
-<%= link_to "Go Back",  listing_bookings_path(@booking.listing) %>
+
+<h2><%= @booking.start_date %></h2>
+<h2><%= @booking.end_date %></h2>
+<h2><%= @booking.listing.user.first_name + " " + @booking.listing.user.last_name %></h2>
+<h2><%= @booking.listing.user.email %></h2>
+<%= link_to "Go Back",  listing_bookings_path(@booking.listing), class:"btn btn-primary" %>
+<%= link_to "Delete Booking", listing_bookings_path, method: :delete, class:"btn btn-primary" %>
