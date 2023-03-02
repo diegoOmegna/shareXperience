@@ -1,3 +1,4 @@
+
 // .btn-flat {
 //   align-items: center;
 //   background-color: #0A66C2;
@@ -48,3 +49,13 @@
 
 
 // a:active { text-decoration: none; }
+
+.btn-primary {
+text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+  color: white;
+}
+

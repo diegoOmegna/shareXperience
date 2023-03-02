@@ -1,8 +1,11 @@
+<div class="container"></div>
+<h1>Edit your Xperience</h1>
 <%= simple_form_for @listing do |f| %>
   <%= f.input :title %>
   <%= f.input :details %>
   <%= f.input :price_per_day %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-primary"%>
 <% end %>
 
 <%= link_to "Go back", root_path  %>
+</div>
