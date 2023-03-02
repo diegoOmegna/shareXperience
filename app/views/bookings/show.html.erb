@@ -6,6 +6,5 @@
 <p><%= total_days  %> days </p>
 <h3>Your final price: <%= total_days * @booking.listing.price_per_day %> CHF </h3>
 <h1>We hope you enjoy your Xperience <%= @booking.user.first_name %>!</h1>
-<%= link_to "Go back", root_path%>
-<%= link_to "Delete Booking", @booking, :method => :delete %>
-
+<%= link_to "Go back", root_path, class: "btn btn-primary"%>
+<%= link_to "Delete Booking", @booking, :method => :delete, class: "btn btn-primary" %>
