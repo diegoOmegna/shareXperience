@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
     if params[:query].present?
       @listings = Listing.search_by_title_and_details(params[:query])
     else
-      @listings = policy_scope(listing)
+      @listings = policy_scope(Listing)
     end
   end
 
@@ -22,8 +22,8 @@ class ListingsController < ApplicationController
   end
 
   def new
-    authorize @listing
     @listing = Listing.new
+    authorize @listing
   end
 
   def create
