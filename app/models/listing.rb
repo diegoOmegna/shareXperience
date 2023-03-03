@@ -3,6 +3,7 @@ class Listing < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
   has_many :bookings
+  has_many :reviews, dependent: :destroy
 
   include PgSearch::Model
 
