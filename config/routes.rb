@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :listings do
-    resources :bookings, only: [ :index, :show ], module: :listings
+    resources :bookings, only: [ :index, :show, :destroy ], module: :listings
     resources :reviews, only: [:new, :create]
   end
   resources :bookings, only: [ :new, :create, :show, :index, :destroy ]
