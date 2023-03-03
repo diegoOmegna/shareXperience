@@ -9,17 +9,17 @@ class BookingsController < ApplicationController
   end
 
   def show
-    # authorize @booking
+    authorize @booking
   end
 
   def new
     @booking = Booking.new
-    # authorize @booking
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    # authorize @booking
+    authorize @booking
     @booking.user = current_user
     @booking.listing = Listing.find(params[:listing_id])
     if @booking.save
@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    authorize @booking
     @booking.destroy
   end
 
