@@ -12,7 +12,8 @@
     <img src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector.png" class="card-trip-user avatar-bordered" />
   </div>
   <div>
-    <%= simple_form_for [@listing, @booking] do |f| %>
+    <%= simple_form_for @booking do |f| %>
+      <%= f.input :listing_id, as: :hidden %>
       <%= f.date_field :start_date %>
       <%= f.date_field :end_date %>
       <%= f.button :submit, class: "btn btn-primary" %>
