@@ -17,19 +17,21 @@
     </div>
 
 
-  <div class="row" style="margin: 10px";>
-  <% @listings.each do |listing| %>
+
+<div class="row" style="margin: 10px";>
+    <% @listings.each do |listing| %>
   <div class="card-trip col-12 col-lg-4">
     <img src="https://images.unsplash.com/photo-1651133806650-a61eef0a8fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" />
     <div class="card-trip-infos">
-      <div>
-          <h5 class="card-title"><%= link_to listing.title, listing_path(listing.id)%></h5>
-          <p class="card-text"><%= listing.details %></p>
-      </div>
-      <h2 class="card-trip-pricing">CHF <%= listing.price_per_day %></h2>
-      <img src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector.png" class="card-trip-user avatar-bordered" />
+      <div class="btn btn-flat">
+        <h5 class="card-title"><%= link_to listing.title, listing_path(listing.id)%></h5>
+         <p class="card-text"><%= listing.details %></p>
+       </div>
+           <h2 class="card-trip-pricing">CHF <%= listing.price_per_day %></h2>
+           <img src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector.png" class="card-trip-user avatar-bordered" />
     </div>
   </div>
   <% end %>
-  </div>
+ </div>
 </div>
+
