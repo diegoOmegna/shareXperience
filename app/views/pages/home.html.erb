@@ -2,7 +2,8 @@
   <div class="container">
     <h1>welcome to <strong>shareXperience</strong>!</h1>
     <p>Share your Xperience and Change your life and the world.</p>
-    <div>
+
+    <div style = "width: 500px;">
       <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
@@ -10,9 +11,10 @@
       placeholder: "Find an Xperience"
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+    <% end %>
     </div>
-    <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+    <p>Sign up today!</p>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary mt-2" %>
   </div>
 </div>
 
