@@ -2,11 +2,12 @@ class Listings::BookingsController < ApplicationController
 
   def index
     @listing = current_user.listings.find(params[:listing_id])
-    @bookings = @listing.bookings
+    @bookings = policy_scope(Booking)
   end
 
   def show
     @listing = current_user.listings.find(params[:listing_id])
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 end

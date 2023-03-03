@@ -5,23 +5,25 @@ class BookingsController < ApplicationController
   before_action :set_listing, only: [ :new, :create ]
 
   def index
-    @bookings = current_user.bookings
+    # @bookings = current_user.bookings
+    @bookings = policy_scope(Booking)
   end
 
   def show
-    # authorize @booking
+    authorize @booking
   end
 
   def new
     @booking = Booking.new
-    # authorize @booking
+    @booking.listing = @listing
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    # authorize @booking
+    authorize @booking
     @booking.user = current_user
-    @booking.listing = Listing.find(params[:listing_id])
+    @booking.listing = @listing
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -30,7 +32,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    authorize @booking
     @booking.destroy
+    redirect_to booking_path(@booking)
   end
 
   private
@@ -40,7 +44,7 @@ class BookingsController < ApplicationController
   end
 
   def set_listing
-    @listing = Listing.find(params[:listing_id])
+    @listing = Listing.find(params[:listing_id] || params[:booking][:listing_id])
   end
 
   def booking_params

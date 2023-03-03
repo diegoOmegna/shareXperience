@@ -6,12 +6,12 @@ class ListingsController < ApplicationController
     if params[:query].present?
       @listings = Listing.search_by_title_and_details(params[:query])
     else
-      @listings = Listing.all
+      @listings = policy_scope(Listing)
     end
   end
 
   def show
-    # The `geocoded` scope filters only listing with coordinates
+    authorize @listing
     @markers = [{
 
       lat: @listing.latitude,
@@ -23,24 +23,33 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+    authorize @listing
   end
 
   def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
+    authorize @listing
     @listing.save
-    redirect_to listing_path(@listing)
+    if @listing.save
+      redirect_to listing_path(@listing)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
+    authorize @listing
   end
 
   def update
+    authorize @listing
     @listing.update(listing_params)
     redirect_to listing_path(@listing)
   end
 
   def destroy
+    authorize @listing
     @listing.destroy
     redirect_to listings_path
   end

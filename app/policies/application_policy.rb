@@ -6,6 +6,7 @@ class ApplicationPolicy
   def initialize(user, record)
     @user = user
     @record = record
+    # raise user.inspect
   end
 
   def index?
